@@ -1,0 +1,16 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+
+
+{% block title %}
+TANK FOOTBALL
+{% endblock title %}
+
+{% block content %}
+<div class="container_for_game">
+    <canvas></canvas>
+</div>
+
+<script src="{% static 'main_app/scripts/main.js' %}"></script>
+</body>
+{% endblock content %}

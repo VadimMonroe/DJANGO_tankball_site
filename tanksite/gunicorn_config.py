@@ -1,0 +1,10 @@
+command = '/home/vadimmonroe/django_site_prj/venv/bin/gunicorn'
+pythonpath = '/home/vadimmonroe/django_site_prj'
+#pythonpath = '/home/vadimmonroe/django_site_prj/venv/lib/python3.10/site-packages'
+#pythonpath = '/home/vadimmonroe/django_site_prj/venv/bin/python3.10'
+bind = '127.0.0.1:8001'
+workers = 3
+user = 'vadimmonroe'
+limit_request_fields = 32000
+limit_request_field_size = 0
+raw_env = 'DJANGO_SETTINGS_MODULE=tanksite.settings'

@@ -1,0 +1,21 @@
+{% extends 'main_app/base.html' %}
+
+{% block title %}
+TANK FOOTBALL GAME
+{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <h1>Welcome to TANK FOOTBALL GAME site!</h1>
+
+    <!-- Градиентный контейнер -->
+    <div class="box-2">
+        <!-- Анимированная кнопка -->
+        <div class="btn btn-two">
+            <a href="{% url 'tank-game' %}">PLAY GAME</a>
+        </div>
+    </div>
+</div>
+
+<!--<script src="main_app/templates/main_app/scripts/main_app.js"></script>-->
+{% endblock content %}
