@@ -6,60 +6,38 @@ TANK FOOTBALL GAME
 
 {% block content %}
 
-<div class="container2">
-    <progress max="100" value="25"></progress>
-    <marquee scrolldelay="15" scrollamount="2" behavior="alternate" direction="left" bgcolor="#ffcc00">
-        Lorem ipsum dolor sit amet...
-    </marquee>
-    <h1>Comment FORM</h1>
-    <!-- Градиентный контейнер -->
-    <div class="box-2">
-        <p><iframe name="area" width="500" height="200" align="left">
-            Ваш браузер не поддерживает плавающие фреймы!
-        </iframe></p>
-<!--        <iframe src="http://htmlbook.ru/html/iframe" width="468" height="60" align="left">-->
-<!--            Ваш браузер не поддерживает плавающие фреймы!-->
-<!--        </iframe>-->
-
-        <form class='form-for-comments' method="post" enctype="multipart/form-data"
-              action="mailto:propoved@mail.ru" target="area" autocomplete="off">
-            <p><b>Как по вашему мнению расшифровывается аббревиатура &quot;ОС&quot;?</b></p>
-            <p>
-                <input name="answer" value="Имя" autofocus> Имя<Br>
-                <input type="radio" name="answer" value="a1">Офицерский состав<Br>
-                <input type="radio" name="answer" value="a2">Операционная система<Br>
-                <input type="radio" name="answer" value="a3">Большой полосатый мух
-            </p>
-            <p>
-                <input type="submit" value="Ответить" name=""
-                       required minlength="2" maxlength="25">
-            </p>
-            <p>Комментарий<Br>
-                <textarea name="comment" cols="40" rows="3"></textarea></p>
-                <p><input type="submit" value="Отправить">
-                <input type="reset" value="Очистить">
-            </p>
-        </form>
+<!--    <h1>Comment FORM</h1>-->
+<div class="form_box">
+    <form class='form-for-comments' method="post" target="area">
+        {% csrf_token %}
+        {{ form.form_name }}
+        {{ form.message }}
+        <!-- enctype="multipart/form-data" action="" target="area" autocomplete="off"> -->
+        <!-- <input class="form_input_class" type="text" name="" value="" placeholder="Имя" autofocus><Br><Br>
+        <textarea class="form_input_class" type="text" name="comment" cols="100%" rows="3" placeholder="Сообщение"></textarea><Br> -->
+        <input class="bttn-fill bttn-md bttn-warning" type="submit" value="Ответить">
+        <input class="bttn-fill bttn-md bttn-warning" type="reset" value="Очистить">
+    </form>
+    <div id="messages_window">
+        {% if all_messages_form %}
+        {% for message in all_messages_form %}
+            <div class="one_message">
+                <p id="date">{{ message.date }}</p>
+                <h3>{{ message.form_name }}</h3>
+                <p>{{ message.message }}</p>
+                <span> {{ error }}</span>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>Нет сообщений</p>
+    {% endif %}
     </div>
+    <!-- <iframe class="area" name="area" width="100%" height="60%"></iframe> -->
 </div>
 
-<div class="container">
-    <div class="box-2">
-        <form oninput="result.value=(cm.value/2.54).toFixed(2)">
-            <p>Введите длину в сантиметрах:
-            <input type="number" name="cm" autofocus></p>
-            <p>Длина в дюймах: <output name="result">0</output></p>
-        </form>
-    </div>
-</div>
+<script>
+    var scrollObj = document.querySelector("#messages_window");
+    scrollObj.scrollTop = scrollObj.scrollHeight - scrollObj.clientHeight;
+</script>
 
-<div class="container">
-    <div class="box-2">
-        <form onsubmit="return false" oninput="level.value = flevel.valueAsNumber">
-            <label for="flying">Flying Skill Level</label>
-            <input name="flevel" id="flying" type="range" min="0" max="100" value="0">
-            <output for="flying" name="level">0</output>/100
-        </form>
-    </div>
-</div>
 {% endblock content %}

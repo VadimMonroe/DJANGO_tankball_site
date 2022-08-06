@@ -1,44 +1,111 @@
 @import 'https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300';
 
-html,
-body {
-	width: 100%;
-	height: 100%;
-	/*  overflow: hidden;*/
+:root {
+	--main-yellow-color: #ffcc00;
+	--main-orange-color: #feab3a;
+	--main-light-blue-color: #33ADFF;
+  }
+
+*{
 	margin: 0;
-	/*  flex-direction: column;*/
-	/*  flex-wrap: wrap;*/
+	padding: 0;
+	box-sizing: border-box;
 	font-family: 'Open Sans Condensed', sans-serif;
 }
 
+/* html, body {
+	width: 100%;
+	height: 100%;
+} */
+
 .container {
 	width: 90%;
-	height: 300px;
-	background: linear-gradient(70deg, blue, pink);
-	margin-left: auto;
+    aspect-ratio: 1.62/1;
+	/* display: block; */
+
+	margin: 1% auto 1% auto;
+    /* position: absolute; */
+	
+	/* top: 50%;
+	left: 50%; */
+
+    /* margin-left: -45%;
 	margin-right: auto;
-	margin-top: auto;
-	margin-bottom: auto;
+	margin-top: -30%;
+	margin-bottom: auto; */
 }
 
-.container2 {
-	width: 90%;
-	height: 500px;
+.content_window {
+	width: 100%;
+	height: 100%;
 	background: linear-gradient(70deg, blue, pink);
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: auto;
-	margin-bottom: auto;
 }
 
+.menu {
+	width: 100%;
+	/* position: absolute; */
+	/* margin-top: -25px; */
+	padding-bottom: 0.55%;
+}
+
+.menu ul {
+	/* text-align: center; */
+	list-style: none;
+}
+
+.menu li {
+	display: inline-block;
+	/* margin: 0 15px; */
+}
+
+/* .menu li:first-child{
+	margin-left: 0;	
+	float:inline-start;
+}
+
+.menu li:last-child{
+	margin-right: 0;	
+	float:inline-end;
+} */
+
+.menu a {
+	background-color: #33ADFF;
+	color: #fff;
+	font-size: 16px;
+	/* color: inherit; */
+	/* cursor: pointer; */
+	opacity: 0.9;
+	
+	text-align: center;
+	font-weight: bold;
+
+	display:block;
+	width: 135px;
+	min-width: 100px;
+
+	/* margin-left: 10px; */
+	/* padding: 5px; */
+	text-decoration: none;
+	
+	
+	
+	/* transition: .5s linear; */
+}
+
+.menu a:hover{
+	opacity: 1;
+}
 
 .container_for_game {
 	width: 95%;
 	height: 95%;
+	position:relative;
+	top: 4%;
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: auto;
 	margin-bottom: auto;
+	/* padding-bottom: 2%; */
 }
 
 h1 {
@@ -63,8 +130,9 @@ div[class=box-2] {
 	line-height: 50px;
 	height: 50px;
 	text-align: center;
-	width: 250px;
+	width: 350px;
 	cursor: pointer;
+	top:100%;
 }
 
 .btn-two {
@@ -153,4 +221,90 @@ canvas {
 	margin: 0 auto;
 	width: 100%;
 	background-color: #9999;
+}
+
+.upper_slider_news {
+	display: block;
+	color: white;
+	text-shadow: 1px 1px 2px black;
+	/* width: 100%; */
+	/* font-size: 16px; */
+	/* height: 3.2%; */
+	background-color: #ffcc00;
+	margin-bottom: 0.55%;
+}
+
+.one_message {
+	background-color: #ffcc00;
+	margin: 1% 1% 1% 1%;
+	padding: 1% 1% 1% 1%;
+	word-wrap: break-word;
+	border-style:solid;
+	border-color: #FFF;
+   	border-radius: 20px;
+}
+
+
+#date {
+	text-align: right;
+}
+
+.form_box {
+	display:grid;
+	/* position:sticky; */
+	width: 90%;
+	height: 100%;
+	/* background-color: #33ADFF; */
+	/* top:1%;
+	left:5%; */
+	/* margin-top: 1%; */
+	margin: auto auto auto auto;
+	padding-top: 5%;
+}
+
+.form_input_class {
+	/* display: block; */
+	width: 100%;
+	/* height: 20%; */
+	/* line-height: 40px; */
+	font-size: 100%;
+   	border-width: 5px;
+	border-style:solid;
+	border-color: #FFF;
+   	border-radius: 5px;
+
+	/* margin-top: 1%; */
+	margin-bottom: 2%;
+
+	/* background:-webkit-gradient(left top, right top, color-stop(0%, #bc3220), color-stop(29%, #db4a37), color-stop(50%, #db4a37), color-stop(71%, #db4a37), color-stop(100%, #bc3220)); */
+	/* background:-webkit-radial-gradient(30% 100%,#c61801, #ff4603); */
+}
+
+.form_input_class::-webkit-input-placeholder  {
+	color: var(--main-light-blue-color);
+	text-indent: 0px;   
+	transition: text-indent 0.3s ease;
+}
+
+.form_input_class:focus::-webkit-input-placeholder   {
+	text-indent: 94%; 
+	transition: text-indent 0.3s ease;
+}
+
+#messages_window {
+    /* display: block; */
+	/* position: relative; */
+	margin: 2.8% auto 10% auto;
+	width: 100%;
+	height: 80%;
+	/* float:left; */
+	/* max-height: 80%; */
+	/* aspect-ratio: 3/1; */
+	background-color: white;
+	/* opacity:80%; */
+	overflow: scroll;
+	border-width: 10px;
+	border-style:solid;
+	border-color: #FFF;
+   	border-radius: 5px;
 }
