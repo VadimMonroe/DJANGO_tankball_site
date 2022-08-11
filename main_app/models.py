@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 
 class Messages(models.Model):
@@ -10,6 +11,10 @@ class Messages(models.Model):
     def __str__(self):
         return self.form_name
 
+    def get_absolute_url(self):
+        return f'/form-comments/{self.id}'
+
     class Meta:
         verbose_name = 'Сообщениe в Форме'
         verbose_name_plural = 'Сообщения в Форме'
+        db_table = 'MessagesForm'

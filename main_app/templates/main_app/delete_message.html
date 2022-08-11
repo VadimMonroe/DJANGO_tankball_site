@@ -1,0 +1,21 @@
+{% extends 'main_app/base.html' %}
+
+{% block title %}
+delete
+{% endblock title %}
+
+{% block content %}
+
+<div class="form_box">
+
+    <form class='form-for-comments' method="post" target="area">
+        <h1>Удаление сообщения</h1><br>
+        {% csrf_token %}
+
+<!--        {{ form.form_name }}-->
+<!--        {{ form.message }}-->
+        <input class="bttn-fill bttn-md bttn-warning" type="submit" value="Удалить">
+    </form>
+</div>
+
+{% endblock content %}

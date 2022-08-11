@@ -115,7 +115,9 @@
     color: #fff;
     -webkit-transition: all 0.5s cubic-bezier(0.02, 0.01, 0.47, 1);
     transition: all 0.5s cubic-bezier(0.02, 0.01, 0.47, 1);
-  }
+}
+
+
   .bttn-fill:hover:before,
   .bttn-fill:focus:before {
     opacity: 1;
@@ -126,6 +128,8 @@
     -webkit-transform: scaleX(1);
             transform: scaleX(1);
   }
+
+
   .bttn-fill.bttn-xs {
     padding: 3px 8px;
     font-size: 12px;

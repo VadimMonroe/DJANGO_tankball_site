@@ -26,6 +26,7 @@ TANK FOOTBALL GAME
                 <h3>{{ message.form_name }}</h3>
                 <p>{{ message.message }}</p>
                 <span> {{ error }}</span>
+<!--                <a href="{% url 'message-detail' message.id %}" class=""> Читать детальнее</a>-->
             </div>
         {% endfor %}
     {% else %}

@@ -1,0 +1,20 @@
+{% extends 'main_app/base.html' %}
+
+{% block title %}
+update
+{% endblock title %}
+
+{% block content %}
+
+<div class="form_box">
+    <h1>Изменение сообщения</h1>
+    <form class='form-for-comments' method="post" target="area">
+        {% csrf_token %}
+        {{ form.form_name }}
+        {{ form.message }}
+        <input class="bttn-fill bttn-md bttn-warning" type="submit" value="Обновить">
+        <input class="bttn-fill bttn-md bttn-warning" type="reset" value="Очистить">
+    </form>
+</div>
+
+{% endblock content %}

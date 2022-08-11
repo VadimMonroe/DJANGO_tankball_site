@@ -10,7 +10,11 @@ TANK FOOTBALL
 <div class="container_for_game">
     <canvas></canvas>
 </div>
-
+<div class="info hidden">
+    <div class="info__content">
+        <p>Last action: </p> <span id="msg-box"></span>
+    </div>
+</div>
 <script src="{% static 'main_app/scripts/main.js' %}"></script>
 </body>
 {% endblock content %}

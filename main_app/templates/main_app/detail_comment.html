@@ -1,0 +1,20 @@
+{% extends 'main_app/base.html' %}
+
+{% block title %}
+TANK FOOTBALL GAME
+{% endblock title %}
+
+{% block content %}
+<div class="form_box">
+    <div id="messages_window">
+        <div class="one_message">
+            <p id="date">{{ message_detail.date }}</p>
+            <h3>{{ message_detail.form_name }}</h3>
+            <p>{{ message_detail.message }}</p>
+            <a href="{% url 'message-update' message_detail.id %}" class="bttn-fill bttn-md bttn-warning">Обновить</a>
+            <a href="{% url 'message-delete' message_detail.id %}" class="bttn-fill bttn-md bttn-warning">Удалить</a>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

@@ -20,7 +20,11 @@ from django.urls import include
 from django.conf import settings
 from django.conf.urls.static import static
 
+from main_app.views import MessagesAPIView
+
 urlpatterns = [
-    path('', include('main_app.urls')),
-    path('admin/', admin.site.urls),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+                  path('', include('main_app.urls')),
+                  path('admin/', admin.site.urls),
+                  path('api/v1/messages_list', MessagesAPIView.as_view()),
+                  path('api/v1/messages_list/<int:pk>', MessagesAPIView.as_view())
+              ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

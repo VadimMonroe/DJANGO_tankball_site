@@ -6,6 +6,7 @@
 	--main-light-blue-color: #33ADFF;
   }
 
+  
 *{
 	margin: 0;
 	padding: 0;
@@ -38,7 +39,13 @@
 .content_window {
 	width: 100%;
 	height: 100%;
-	background: linear-gradient(70deg, blue, pink);
+
+	/* background: linear-gradient(70deg, blue, pink);*/
+	animation: mymove 5s infinite;
+}
+
+@keyframes mymove {
+    50% {background: blue bottom right/50px 50px;}
 }
 
 .menu {
@@ -46,6 +53,26 @@
 	/* position: absolute; */
 	/* margin-top: -25px; */
 	padding-bottom: 0.55%;
+}
+.menu:hover {
+    /* Start the shake animation and make the animation last for 0.5 seconds */
+    animation: shake 0.5s;
+    /* When the animation is finished, start again */
+    animation-iteration-count: infinite;
+  }
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
 
 .menu ul {
@@ -94,6 +121,7 @@
 
 .menu a:hover{
 	opacity: 1;
+	background-color: var(--main-yellow-color);
 }
 
 .container_for_game {
@@ -173,6 +201,7 @@ div[class=box-2] {
 	transition: all 0.5s;
 	border: 1px solid rgba(255,255,255,0.2);
 	background-color: rgba(255,255,255,0.1);
+
 }
 .btn-two:hover::before {
 	transform: rotate(-45deg);
@@ -242,7 +271,11 @@ canvas {
 	border-style:solid;
 	border-color: #FFF;
    	border-radius: 20px;
+
 }
+
+
+
 
 
 #date {
@@ -308,3 +341,41 @@ canvas {
 	border-color: #FFF;
    	border-radius: 5px;
 }
+
+.info.hidden {
+	display: none;
+	/* visibility: hidden; */
+}
+/* .info {
+	display:block;
+	width: 100%;
+	height: 5%;
+}
+
+.info__content{
+	color:yellow;
+	font-size: 200%;
+}
+#msg-box {
+	color:black;
+	font-size: 200%;
+} */
+
+#ball_img {
+    position: absolute;
+	cursor: move;
+	animation: 5s linear 0s normal none infinite running rot;
+}
+
+/* #ball_img:hover {
+	animation: 5s linear 0s normal none infinite running rot;
+} */
+
+@keyframes rot {
+	0% {
+	  transform: rotate(0deg);
+	}
+	100% {
+	  transform: rotate(360deg);
+	}
+  }
