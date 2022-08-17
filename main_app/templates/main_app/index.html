@@ -6,8 +6,9 @@ TANK FOOTBALL GAME
 {% endblock title %}
 
 {% block content %}
-<div>
-    <img id="ball_img" style="width:150px" src="{% static 'main_app/img/ball.png' %}">
+<div id="ball_div">
+    <p id="ball_paragr">тяни</p>
+    <img id="ball_img" src="{% static 'main_app/img/ball.png' %}">
 </div>
 <!-- <h1>Welcome to TANK FOOTBALL GAME!</h1> -->
 
@@ -23,7 +24,7 @@ TANK FOOTBALL GAME
 </div>
 
 <script>
-const element = document.getElementById(("ball_img"));
+const element = document.getElementById(("ball_div"));
 element.ondragstart = function() { return false; };
     //Make the DIV element draggagle:
 dragElement(element);

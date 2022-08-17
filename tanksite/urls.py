@@ -19,12 +19,18 @@ from django.urls import include
 
 from django.conf import settings
 from django.conf.urls.static import static
+# from main_app.views import MessagesAPIView, MessagesAPIList, MessagesAPIUpdate, MessagesAPIAllOperations
+from main_app.views import *
+from rest_framework import routers
 
-from main_app.views import MessagesAPIView
+# router = routers.DefaultRouter()
+# router.register(r'messages', MessagesViewSet, basename='messages')
 
 urlpatterns = [
                   path('', include('main_app.urls')),
                   path('admin/', admin.site.urls),
-                  path('api/v1/messages_list', MessagesAPIView.as_view()),
-                  path('api/v1/messages_list/<int:pk>', MessagesAPIView.as_view())
+                  # path('api/v1/', include(router.urls)),
+                  path('api/v1/messages_list', MessagesAPIList.as_view()),
+                  path('api/v1/messages_list/<int:pk>', MessagesAPIUpdate.as_view()),
+                  path('api/v1/messages_list_delete/<int:pk>', MessagesAPIDestroy.as_view()),
               ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

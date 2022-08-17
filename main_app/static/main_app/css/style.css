@@ -53,15 +53,34 @@
 	/* position: absolute; */
 	/* margin-top: -25px; */
 	padding-bottom: 0.55%;
-}
-.menu:hover {
+/* }
+.menu:hover { */
     /* Start the shake animation and make the animation last for 0.5 seconds */
-    animation: shake 0.5s;
+    animation: shake 5s;
     /* When the animation is finished, start again */
     animation-iteration-count: infinite;
   }
 
 @keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+.menu:hover { 
+	animation: shake2 1s;
+	animation-iteration-count: infinite;
+}
+
+@keyframes shake2 {
     0% { transform: translate(1px, 1px) rotate(0deg); }
     10% { transform: translate(-1px, -2px) rotate(-1deg); }
     20% { transform: translate(-3px, 0px) rotate(1deg); }
@@ -360,11 +379,32 @@ canvas {
 	color:black;
 	font-size: 200%;
 } */
+#ball_div {
+	position: absolute;
+	width: 300px;
+	height: 300px;
+	float:right;
+	animation: 5s linear 0s normal none infinite running rot;
+
+}
+
+#ball_paragr {
+	position: absolute;
+	color: white;
+	text-align: right;
+	width: 270px;
+	height: 270px;
+	margin-top: 50%;
+}
 
 #ball_img {
+	position: absolute;
+	width: 150px;
+	margin-top: 75px;
+	margin-left: 75px;
     position: absolute;
 	cursor: move;
-	animation: 5s linear 0s normal none infinite running rot;
+	/* animation: 5s linear 0s normal none infinite running rot; */
 }
 
 /* #ball_img:hover {

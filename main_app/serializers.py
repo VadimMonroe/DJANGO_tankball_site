@@ -7,8 +7,10 @@ from .models import Messages
 
 
 class MessagesSerializer(serializers.ModelSerializer):
+    user = serializers.HiddenField(default=serializers.CurrentUserDefault())
+
     class Meta:
         model = Messages
         # fields = ('id', 'form_name', 'message', 'date')
-        fields = "__ALL__"
+        fields = "__all__"
 
