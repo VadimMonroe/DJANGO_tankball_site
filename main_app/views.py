@@ -4,7 +4,9 @@ from re import A
 from django.forms import model_to_dict
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from rest_framework.authentication import TokenAuthentication
 from rest_framework.decorators import action
+from rest_framework.pagination import PageNumberPagination
 from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly, IsAdminUser
 from rest_framework.viewsets import GenericViewSet
 
@@ -43,22 +45,31 @@ from rest_framework.views import APIView
 #         return Response({'cats': [cats.form_name]})
 
 
+class MessagesAPIListPagination(PageNumberPagination):
+    page_size = 4
+    page_size_query_param = 'page_size'
+    max_page_size = 10
+
+
 class MessagesAPIList(generics.ListCreateAPIView):
     queryset = Messages.objects.all()
     serializer_class = MessagesSerializer
-    permission_classes = (IsAuthenticatedOrReadOnly, )
+    permission_classes = (IsAuthenticatedOrReadOnly,)
+    pagination_class = MessagesAPIListPagination
 
 
 class MessagesAPIUpdate(generics.RetrieveUpdateAPIView):
     queryset = Messages.objects.all()
     serializer_class = MessagesSerializer
-    permission_classes = (IsOwnerOrReadOnly, )
+    permission_classes = (IsAuthenticated,)
+    # authentication_classes = (TokenAuthentication, )
 
 
 class MessagesAPIDestroy(generics.RetrieveDestroyAPIView):
     queryset = Messages.objects.all()
     serializer_class = MessagesSerializer
-    permission_classes = (IsAdminOrReadOnly, )
+    permission_classes = (IsAdminOrReadOnly,)
+
 
 # class MessagesAPIAllOperations(generics.RetrieveUpdateDestroyAPIView):
 #     queryset = Messages.objects.all()
